@@ -36,6 +36,7 @@ jobs:
         ref:  ${{ fromJson(steps.upstream_releases.outputs.response)[0].tag_name }}
         # REQUIRED if your upstream repo is private (see wiki)
         persist-credentials: false
+        fetch-tags: true
 
     # REQUIRED step
     # Step 3: run the sync action
