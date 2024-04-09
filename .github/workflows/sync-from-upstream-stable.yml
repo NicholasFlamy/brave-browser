@@ -39,7 +39,7 @@ jobs:
       with:
         # optional: set the branch to checkout,
         # sync action checks out your 'target_sync_branch' anyway
-        ref:  master
+        ref: stable
         # REQUIRED if your upstream repo is private (see wiki)
         persist-credentials: false
 
@@ -49,10 +49,10 @@ jobs:
       id: sync
       uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
       with:
-        target_sync_branch: master
+        target_sync_branch: stable
         # REQUIRED 'target_repo_token' exactly like this!
         target_repo_token: ${{ secrets.UPSTREAM_SYNC_TOKEN }}
-        upstream_sync_branch: master
+        upstream_sync_branch: ${{ fromJson(steps.REGEX_tag.outputs.replaced) }}
         upstream_sync_repo: brave/brave-browser
         upstream_repo_access_token: ${{ secrets.UPSTREAM_REPO_SECRET }}
 
