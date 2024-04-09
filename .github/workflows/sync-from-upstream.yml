@@ -31,7 +31,7 @@ jobs:
       with:
         # optional: set the branch to checkout,
         # sync action checks out your 'target_sync_branch' anyway
-        ref:  ${{ fromJson(steps.upstream_releases.outputs.response)[0].tag_name }}
+        ref:  ${{ fromJson(steps.upstream_releases.outputs.response).tag_name }}
         # REQUIRED if your upstream repo is private (see wiki)
         persist-credentials: false
         fetch-tags: true
