@@ -52,7 +52,7 @@ jobs:
         target_sync_branch: stable
         # REQUIRED 'target_repo_token' exactly like this!
         target_repo_token: ${{ secrets.UPSTREAM_SYNC_TOKEN }}
-        upstream_sync_branch: 1.64.x
+        upstream_sync_branch: ${{ steps.REGEX_tag.outputs.replaced }}
         upstream_sync_repo: brave/brave-browser
         upstream_repo_access_token: ${{ secrets.UPSTREAM_REPO_SECRET }}
 
